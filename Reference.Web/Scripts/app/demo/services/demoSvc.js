@@ -8,15 +8,6 @@
                     records: records
                 };
             },
-            tabsModel = function () {
-                var tabs = [
-                    { id: 1, name: "File Upload" }
-                ];
-
-                return {
-                    tabs: tabs
-                };
-            },
             getRecords = function () {
                 var deferred = $q.defer();
 
@@ -55,7 +46,6 @@
 
         return {
             recordModel: recordModel,
-            tabsModel: tabsModel,
             getRecords: getRecords,
             deleteRecord: deleteRecord
         };

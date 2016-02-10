@@ -198,7 +198,9 @@
     <Content Include="Content\templates\core\randomize-chart.html" />
     <Content Include="Content\templates\core\tab-anchor.html" />
     <Content Include="Content\templates\core\tab-nav.html" />
+    <Content Include="Content\templates\demo\demo-layout.html" />
     <Content Include="Content\templates\demo\file-demo.html" />
+    <Content Include="Content\templates\demo\line-chart-demo.html" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
@@ -220,7 +222,9 @@
     <Content Include="Scripts\app\core\services\chartSvc.js" />
     <Content Include="Scripts\app\core\services\toastrSvc.js" />
     <Content Include="Scripts\app\core\services\uploadSvc.js" />
+    <Content Include="Scripts\app\demo\directives\demoLayout.js" />
     <Content Include="Scripts\app\demo\directives\fileDemo.js" />
+    <Content Include="Scripts\app\demo\directives\lineChartDemo.js" />
     <Content Include="Scripts\app\demo\services\demoSvc.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

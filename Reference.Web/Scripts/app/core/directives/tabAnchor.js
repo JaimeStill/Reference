@@ -14,6 +14,10 @@
                     $(this).tab('show');
                     scope.$emit('tabNavigation', scope.anchorId);
                 });
+
+                $(element).on('shown.bs.tab', function (e) {
+                    scope.$emit('tabShown', scope.anchorId);
+                });
             }
         };
     };

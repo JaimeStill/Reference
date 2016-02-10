@@ -74,7 +74,7 @@ namespace Reference.Web.Controllers
         [HttpPost] 
         public async Task DeleteRecord([FromBody]int id)
         {
-            await Context.DeleteRecord(id);
+            await Context.DeleteRecord(id, Server);
         }
         #endregion
     }

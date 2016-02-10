@@ -4,6 +4,7 @@ using Reference.Web.Models.Demo;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -49,9 +50,16 @@ namespace Reference.Web.Infrastructure.Extensions
             }
         }
 
-        public static async Task DeleteRecord(this AppDbContext context, int id)
+        public static async Task DeleteRecord(this AppDbContext context, int id, HttpServerUtilityBase server)
         {
             var record = await context.Records.FindAsync(id);
+            var path = server.MapPath(record.FilePath);
+
+            if (File.Exists(path))
+            {
+                File.Delete(path);
+            }
+
             context.Records.Remove(record);
             await context.SaveChangesAsync();
         }

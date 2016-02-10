@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.line-canvas {
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    display: block;
+}

@@ -2,8 +2,10 @@
     ViewBag.Title = "Demo";
 }
 
-<file-demo></file-demo>
+<demo-layout></demo-layout>
+
 
 @section scripts {
+    @Scripts.Render("~/bundles/charts")
     @Scripts.Render("~/bundles/demo")
 }

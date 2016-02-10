@@ -1,12 +1,11 @@
 ﻿(function () {
     var lineChartCtrl = function ($scope, chartSvc) {
-        $scope.chartData = chartSvc.chartData;
         $scope.shared = chartSvc.sharedScope;
     };
 
     lineChartCtrl.$inject = ['$scope', 'chartSvc'];
 
-    var lineChart = function () {
+    var lineChart = function (chartSvc) {
         return {
             restrict: 'EA',
             replace: true,
@@ -16,21 +15,31 @@
             },
             controller: lineChartCtrl,
             link: function (scope, element, attrs, controller) {
+                var canvas = $(element)[0],
+                    ctx = canvas.getContext('2d'),
+                    lineChart = null,
+                    lineChartOptions = {
+                        scaleGridLineColor: 'rgba(0, 0, 0, .05)',
+                        responsive: true,
+                        animation: true
+                    };
+
+                if (scope.chartHeight) {
+                    canvas.height = scope.chartHeight;
+                }
+
                 scope.shared.renderChart = function () {
-                    Chart.defaults.global.responsive = true;
 
-                    var ctx = $(element)[0].getContext('2d');
-
-                    if (scope.lineChart !== undefined && scope.lineChart !== null) {
-                        scope.lineChart.destroy();
+                    if (lineChart !== undefined && lineChart !== null) {
+                        lineChart.destroy();
                     }
 
-                    scope.chart = new Chart(ctx);
-                    scope.lineChart = scope.chart.Line(scope.chartData.data);
+                    lineChart = new Chart(ctx).Line(chartSvc.chartData.data, lineChartOptions);
                 };
             }
         };
     };
 
+    lineChart.$inject = ['chartSvc'];
     referenceApp.directive('lineChart', lineChart);
 }());

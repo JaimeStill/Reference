@@ -7,6 +7,9 @@
                     datasets: []
                 }
             },
+            sampleData = {
+                samples: []
+            },
             sharedScope = {},
             updateChart = function (labels, datasets) {
                 chartData.data.labels = labels;
@@ -71,11 +74,25 @@
                     datasets.push(dataset);
                 }
 
+                sampleData.samples = [];
+
+                for (var i = 0; i < 5; i++) {
+                    var sample = {
+                        name: labels[i],
+                        setOne: datasets[0].data[i],
+                        setTwo: datasets[1].data[i],
+                        setThree: datasets[2].data[i]
+                    };
+
+                    sampleData.samples.push(sample);
+                }
+
                 updateChart(labels, datasets);
             };
 
         return {
             chartData: chartData,
+            sampleData: sampleData,
             updateChart: updateChart,
             sharedScope: sharedScope,
             randomizeChart: randomizeChart

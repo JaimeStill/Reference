@@ -38,12 +38,12 @@ namespace Reference.Web
                 "~/Scripts/Chart.Core.js",
                 "~/Scripts/Chart.Line.js"));
 
-            bundles.Add(new Bundle("~/bundles/app").Include(
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
                 "~/Scripts/app/*.js",
                 "~/Scripts/app/core/directives/*.js",
                 "~/Scripts/app/core/services/*.js"));
 
-            bundles.Add(new Bundle("~/bundles/demo").Include(
+            bundles.Add(new ScriptBundle("~/bundles/demo").Include(
                 "~/Scripts/app/demo/directives/*.js",
                 "~/Scripts/app/demo/services/*.js"));
         }

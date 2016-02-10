@@ -1,0 +1,18 @@
+﻿<div>
+    <h2>Framework Demo</h2>
+
+    <tab-nav items="contents"></tab-nav>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane fade" id="{{content.id}}" ng-repeat="content in contents">
+            <h3>{{content.name}}</h3>
+
+            <hr />
+
+            <div ng-switch="content.directive">
+                <file-demo ng-switch-when="file-demo"></file-demo>
+                <line-chart-demo ng-switch-when="line-chart-demo"></line-chart-demo>
+            </div>
+        </div>
+    </div>
+</div>
