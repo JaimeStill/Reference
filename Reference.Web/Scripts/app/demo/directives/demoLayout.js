@@ -13,7 +13,20 @@
             }
         ];
 
-        $scope.$on('tabShown', function (anchorId) {
+        //$scope.contents = [
+        //    {
+        //        name: "File Upload",
+        //        directive: "file-demo",
+        //        id: 2
+        //    },
+        //    {
+        //        name: "Line Chart",
+        //        directive: "line-chart-demo",
+        //        id: 1
+        //    }
+        //];
+
+        $scope.$on('tabShown', function (e, anchorId) {
             $timeout(function () {
                 if (anchorId == 1) {
                     chartSvc.sharedScope.renderChart();
