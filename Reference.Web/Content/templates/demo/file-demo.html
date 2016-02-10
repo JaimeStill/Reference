@@ -1,0 +1,37 @@
+﻿<div>
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Add Records</h4>
+            <file-upload upload="uploadOptions"></file-upload>
+        </div>
+        <pending-files></pending-files>
+    </div>
+
+    <hr />
+
+    <div>
+        <dynamic-modal modal-options="modalOptions"></dynamic-modal>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>File</th>
+                    <th>Upload Date</th>
+                    <th>Uploaded By</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="record in model.records">
+                    <td>
+                        <a ng-href="{{record.filePath}}" target="_blank" class="btn btn-link">{{record.displayName}}</a>
+                    </td>
+                    <td ng-bind="record.uploadDate"></td>
+                    <td ng-bind="record.uploadedBy"></td>
+                    <td>
+                        <input data-toggle="modal" data-target="#{{modalOptions.modalId}}" type="button" class="btn btn-danger btn-sm" ng-click="setDeleteId(record.id)" value="Delete" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

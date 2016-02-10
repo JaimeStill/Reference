@@ -1,0 +1,19 @@
+﻿<div class="modal fade" tabindex="-1" id="{{modalOptions.modalId}}" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="modalOptions.cancel()" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{{modalOptions.headerText}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>{{modalOptions.bodyText}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="modalOptions.cancel()" data-dismiss="modal">{{modalOptions.closeButtonText}}</button>
+                <button type="button" class="btn btn-danger" ng-click="modalOptions.ok()" data-dismiss="modal">{{modalOptions.actionButtonText}}</button>
+            </div>
+        </div>
+    </div>
+</div>

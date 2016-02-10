@@ -1,0 +1,15 @@
+﻿<div class="col-md-9">
+    <h4>Pending Files</h4>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="file in model.files">
+                <td ng-bind="file.name"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
