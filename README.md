@@ -1,3 +1,5 @@
+![Demo Screen](https://cloud.githubusercontent.com/assets/14102723/12961854/7b889454-d010-11e5-91aa-2a3c757a7f21.png)
+
 ## Reference for Patterns and Practices
 
 ### External Libraries
