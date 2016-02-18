@@ -29,3 +29,7 @@ textarea {
     width: 100%;
     display: block;
 }
+
+input[type='file'] {
+    display: none;
+}

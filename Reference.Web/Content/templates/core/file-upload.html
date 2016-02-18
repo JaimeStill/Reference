@@ -1,11 +1,11 @@
 ﻿<div>
-    <form enctype="multipart/form-data" ng-hide="loadstate.loading">
-        <input type="file" class="input-files" style="display: none" multiple accept="{{upload.accept}}" />
+    <div ng-hide="loadstate.loading">
+        <input type="file" multiple accept="{{upload.accept}}" />
         <div class="btn-group" role="group">
             <input type="button" class="btn btn-primary btn-upload" value="{{upload.fileSelectText}}" />
             <input type="submit" class="btn btn-success" ng-click="upload.upload()" value="{{upload.uploadText}}" />
         </div>
-    </form>
+    </div>
     <div ng-show="loadstate.loading">
         <active-progress-bar></active-progress-bar>
     </div>

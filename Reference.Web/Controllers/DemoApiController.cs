@@ -14,7 +14,7 @@ namespace Reference.Web.Controllers
     {
         private AppDbContext context;
         private UserManager manager;
-        private System.Web.HttpServerUtilityBase server;
+        private HttpServerUtilityBase server;
 
         public AppDbContext Context
         {
