@@ -40,7 +40,7 @@
                         "rgba(0, 140, 0, 0.6)",
                         "rgba(0, 0, 140, 0.6)"
                     ],
-                    pointStrokColorsAndHighlightFills = [
+                    pointStrokeColorsAndHighlightFills = [
                         "#800",
                         "#080",
                         "#008"
@@ -65,8 +65,8 @@
                         fillColor: fillColors[i],
                         strokeColor: strokeColors[i],
                         pointColor: pointColors[i],
-                        pointStrokeColor: pointStrokColorsAndHighlightFills[i],
-                        pointHighlightFill: pointStrokColorsAndHighlightFills[i],
+                        pointStrokeColor: pointStrokeColorsAndHighlightFills[i],
+                        pointHighlightFill: pointStrokeColorsAndHighlightFills[i],
                         pointHighlightStroke: pointHighlightStrokes[i],
                         data: data
                     };
