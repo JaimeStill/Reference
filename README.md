@@ -15,6 +15,7 @@
 <pre>
 Microsoft.AspNet.Identity.Owin (2.2.1)
 Microsoft.Owin.Host.SystemWeb (3.0.1)
+Microsoft.AspNet.SignalR (2.2.0)
 EntityFramework (6.1.3)
 AngularJS.Core (1.4.9)
 toastr (2.1.1)
