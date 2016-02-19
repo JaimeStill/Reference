@@ -1,5 +1,6 @@
 ﻿(function () {
     var demoLayoutCtrl = function ($scope, $timeout, chartSvc) {
+        var chartHub = $.connection.chartHub;
         $scope.contents = [
             {
                 name: "Line Chart",
@@ -25,6 +26,13 @@
         //        id: 1
         //    }
         //];
+
+        chartHub.client.updateChart = function (labels, datasets, samples) {
+            $scope.$apply(function () {
+                chartSvc.updateChart(labels, datasets);
+                chartSvc.updateSample(samples);
+            });
+        };
 
         $scope.$on('tabShown', function (e, anchorId) {
             $timeout(function () {

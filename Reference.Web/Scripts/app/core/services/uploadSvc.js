@@ -1,6 +1,7 @@
 ﻿(function () {
     var uploadSvc = function ($http, $q, toastrSvc) {
         var
+            fileHub = $.connection.fileHub,
             pendingFilesModel = function () {
                 var files = {};
 
@@ -42,6 +43,9 @@
                         for (var i = 0; i < pendingFilesModel.files.length; i++) {
                             toastrSvc.alertSuccess(pendingFilesModel.files[i].name + " uplaoded", "uploadSvc - uploadFiles()");
                         }
+                        $.connection.hub.start().done(function () {
+                            fileHub.server.send();
+                        });
                         deferred.resolve(data);
                     }).error(function (data) {
                         toastrSvc.alertError("Error uploading file(s)", "uplaodSvc - uploadFiles()");

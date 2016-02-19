@@ -11,6 +11,7 @@ namespace Reference.Web
             bundles.Add(new ScriptBundle("~/bundles/core").Include(
                 "~/Scripts/jquery-{version}.js",
                 "~/Scripts/jquery.validate*",
+                "~/Scripts/jquery.signalR-{version}.js",
                 "~/Scripts/modernizr-*",
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/respond.js",

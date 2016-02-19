@@ -1,6 +1,7 @@
 ﻿(function () {
     var demoSvc = function ($http, $q, toastrSvc) {
         var
+            fileHub = $.connection.fileHub,
             recordModel = function () {
                 var records = {};
 
@@ -34,6 +35,9 @@
                     data: id
                 }).success(function (data) {
                     toastrSvc.alertSuccess("Record deleted", "demoSvc - deleteRecord()");
+                    $.connection.hub.start().done(function () {
+                        fileHub.server.send();
+                    });
                     getRecords();
                     deferred.resolve(data);
                 }).error(function (data) {
@@ -42,7 +46,11 @@
                 });
 
                 return deferred.promise;
-            }
+            };
+
+        fileHub.client.getRecords = function () {
+            getRecords();
+        };
 
         return {
             recordModel: recordModel,

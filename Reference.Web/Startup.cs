@@ -15,6 +15,7 @@ namespace Reference.Web
         {
             app.CreatePerOwinContext(AppDbContext.Create);
             app.CreatePerOwinContext<UserManager>(UserManager.Create);
+            app.MapSignalR();
         }
     }
 }

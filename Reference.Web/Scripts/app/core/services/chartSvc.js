@@ -1,6 +1,7 @@
 ﻿(function () {
     var chartSvc = function () {
         var
+            chartHub = $.connection.chartHub,
             chartData = {
                 data: {
                     labels: [],
@@ -15,6 +16,10 @@
                 chartData.data.labels = labels;
                 chartData.data.datasets = datasets;
                 sharedScope.renderChart();
+            },
+            updateSample = function (samples) {
+                sampleData.samples = [];
+                sampleData.samples = samples;
             },
             randomizeChart = function () {
                 var
@@ -87,6 +92,10 @@
                     sampleData.samples.push(sample);
                 }
 
+                $.connection.hub.start().done(function () {
+                    chartHub.server.send(labels, datasets, sampleData.samples);
+                });
+
                 updateChart(labels, datasets);
             };
 
@@ -94,6 +103,7 @@
             chartData: chartData,
             sampleData: sampleData,
             updateChart: updateChart,
+            updateSample: updateSample,
             sharedScope: sharedScope,
             randomizeChart: randomizeChart
         };
