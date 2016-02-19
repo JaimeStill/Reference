@@ -1,7 +1,6 @@
 ﻿(function () {
-    var demoSvc = function ($http, $q, toastrSvc) {
+    var demoSvc = function ($http, $q, uploadRt, toastrSvc) {
         var
-            fileHub = $.connection.fileHub,
             recordModel = function () {
                 var records = {};
 
@@ -48,9 +47,7 @@
                 return deferred.promise;
             };
 
-        fileHub.client.getRecords = function () {
-            getRecords();
-        };
+        uploadRt.initializeClient(getRecords);
 
         return {
             recordModel: recordModel,
@@ -59,7 +56,7 @@
         };
     };
 
-    demoSvc.$inject = ['$http', '$q', 'toastrSvc'];
+    demoSvc.$inject = ['$http', '$q', 'uploadRt', 'toastrSvc'];
 
     referenceApp.factory('demoSvc', demoSvc);
 }());

@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
+using System.Threading.Tasks;
 
 namespace Reference.Web.Hubs
 {
     public class FileHub : Hub
     {
-        public void Send()
+        public Task Send()
         {
-            Clients.All.getRecords();
+            return Task.Run(() =>
+            {
+                Clients.All.getRecords();
+            });
         }
     }
 }

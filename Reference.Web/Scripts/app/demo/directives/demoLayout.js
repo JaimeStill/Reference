@@ -1,6 +1,5 @@
 ﻿(function () {
-    var demoLayoutCtrl = function ($scope, $timeout, chartSvc) {
-        var chartHub = $.connection.chartHub;
+    var demoLayoutCtrl = function ($scope, $timeout, chartSvc, chartRt) {
         $scope.contents = [
             {
                 name: "Line Chart",
@@ -27,12 +26,7 @@
         //    }
         //];
 
-        chartHub.client.updateChart = function (labels, datasets, samples) {
-            $scope.$apply(function () {
-                chartSvc.updateChart(labels, datasets);
-                chartSvc.updateSample(samples);
-            });
-        };
+        chartRt.initializeClient($scope);
 
         $scope.$on('tabShown', function (e, anchorId) {
             $timeout(function () {
@@ -43,7 +37,7 @@
         });
     };
 
-    demoLayoutCtrl.$inject = ['$scope', '$timeout', 'chartSvc'];
+    demoLayoutCtrl.$inject = ['$scope', '$timeout', 'chartSvc', 'chartRt'];
 
     var demoLayout = function (chartSvc) {
         return {

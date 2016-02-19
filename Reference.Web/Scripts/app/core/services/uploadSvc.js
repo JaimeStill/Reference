@@ -1,7 +1,6 @@
 ﻿(function () {
-    var uploadSvc = function ($http, $q, toastrSvc) {
+    var uploadSvc = function ($http, $q, uploadRt, toastrSvc) {
         var
-            fileHub = $.connection.fileHub,
             pendingFilesModel = function () {
                 var files = {};
 
@@ -43,8 +42,8 @@
                         for (var i = 0; i < pendingFilesModel.files.length; i++) {
                             toastrSvc.alertSuccess(pendingFilesModel.files[i].name + " uplaoded", "uploadSvc - uploadFiles()");
                         }
-                        $.connection.hub.start().done(function () {
-                            fileHub.server.send();
+                        uploadRt.send().then(function () {
+                            toastrSvc.alertSuccess("fileHub.server.send");
                         });
                         deferred.resolve(data);
                     }).error(function (data) {
@@ -67,6 +66,6 @@
             uploadFiles: uploadFiles
         };
     };
-    referenceApp.$inject = ['$http', '$q', 'toastrSvc'];
+    referenceApp.$inject = ['$http', '$q', 'uploadRt', 'toastrSvc'];
     referenceApp.factory('uploadSvc', uploadSvc);
 }());

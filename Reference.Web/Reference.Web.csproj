@@ -230,8 +230,10 @@
     <Content Include="Scripts\app\core\directives\randomizeChart.js" />
     <Content Include="Scripts\app\core\directives\tabAnchor.js" />
     <Content Include="Scripts\app\core\directives\tabNav.js" />
+    <Content Include="Scripts\app\core\services\chartRt.js" />
     <Content Include="Scripts\app\core\services\chartSvc.js" />
     <Content Include="Scripts\app\core\services\toastrSvc.js" />
+    <Content Include="Scripts\app\core\services\uploadRt.js" />
     <Content Include="Scripts\app\core\services\uploadSvc.js" />
     <Content Include="Scripts\app\demo\directives\demoLayout.js" />
     <Content Include="Scripts\app\demo\directives\fileDemo.js" />

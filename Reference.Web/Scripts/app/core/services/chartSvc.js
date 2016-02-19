@@ -1,7 +1,6 @@
 ﻿(function () {
-    var chartSvc = function () {
+    var chartSvc = function (chartRt, toastrSvc) {
         var
-            chartHub = $.connection.chartHub,
             chartData = {
                 data: {
                     labels: [],
@@ -92,8 +91,10 @@
                     sampleData.samples.push(sample);
                 }
 
-                $.connection.hub.start().done(function () {
-                    chartHub.server.send(labels, datasets, sampleData.samples);
+                chartRt.initializeServer(updateChart, updateSample);
+
+                chartRt.send(labels, datasets, sampleData.samples).then(function () {
+                    toastrSvc.alertSuccess("chartHub.server.send");
                 });
 
                 updateChart(labels, datasets);
@@ -109,5 +110,6 @@
         };
     };
 
+    chartSvc.$inject = ['chartRt', 'toastrSvc'];
     referenceApp.factory('chartSvc', chartSvc);
 }());
