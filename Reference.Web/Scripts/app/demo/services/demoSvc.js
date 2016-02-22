@@ -34,7 +34,9 @@
                     data: id
                 }).success(function (data) {
                     toastrSvc.alertSuccess("Record deleted", "demoSvc - deleteRecord()");
-                    uploadRt.send();
+                    uploadRt.send().then(function () {
+                        toastrSvc.alertSuccess("fileHub.server.send");
+                    });
                     getRecords();
                     deferred.resolve(data);
                 }).error(function (data) {
