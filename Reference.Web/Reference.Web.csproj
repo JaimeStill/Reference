@@ -181,12 +181,15 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DemoApiController.cs" />
     <Compile Include="Controllers\DemoController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Hubs\ChartHub.cs" />
     <Compile Include="Hubs\FileHub.cs" />
+    <Compile Include="Infrastructure\Attributes\AuthorizeActionAttribute.cs" />
+    <Compile Include="Infrastructure\Attributes\AuthorizeApiAttribute.cs" />
     <Compile Include="Infrastructure\Extensions\DemoExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\IdentityExtensions.cs" />
     <Compile Include="Infrastructure\Extensions\UtilityExtensions.cs" />
@@ -273,6 +276,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Demo\Index.cshtml" />
+    <Content Include="Views\Error\UnauthorizedAccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

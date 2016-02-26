@@ -63,9 +63,9 @@ namespace Reference.Web.Infrastructure
                     return false;
                 }
 
-                foreach (string role in UserRoles)
+                foreach (string role in roles)
                 {
-                    if (roles.Contains(role))
+                    if (UserRoles.Contains(role.Trim()))
                     {
                         return true;
                     }

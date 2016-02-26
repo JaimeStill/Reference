@@ -1,5 +1,4 @@
-﻿using Reference.Web.Infrastructure.Attributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,10 +7,9 @@ using System.Web.Mvc;
 
 namespace Reference.Web.Controllers
 {
-    [AuthorizeAction(Roles="Admin")]
-    public class HomeController : Controller
+    public class ErrorController : Controller
     {
-        public Task<ActionResult> Index()
+        public Task<ActionResult> UnauthorizedAccess()
         {
             return Task.Run(() =>
             {

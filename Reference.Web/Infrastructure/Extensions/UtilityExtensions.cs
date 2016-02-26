@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Controllers;
 
 namespace Reference.Web.Infrastructure.Extensions
 {
@@ -57,6 +58,12 @@ namespace Reference.Web.Infrastructure.Extensions
             {
                 throw new HttpResponseException(HttpStatusCode.InternalServerError);
             }
+        }
+
+        public static Uri GetRedirectUri(this HttpActionContext actionContext, string redirect, string protocol = @"http://")
+        {
+            var authority = actionContext.Request.RequestUri.Authority;
+            return new Uri(protocol + authority + redirect);
         }
     }
 }
