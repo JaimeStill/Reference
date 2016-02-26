@@ -21,7 +21,7 @@ namespace Reference.Web.Infrastructure.Attributes
 
                 var roles = Roles.Split(',');
 
-                if (!Manager.Authenticate(roles))
+                if (!Manager.Authorize(roles))
                 {
                     filterContext.Result = new RedirectResult("/Error/UnauthorizedAccess");
                 }

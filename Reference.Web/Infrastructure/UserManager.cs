@@ -39,7 +39,7 @@ namespace Reference.Web.Infrastructure
             return manager;
         }
 
-        public bool Authenticate(params string[] roles)
+        public bool Authorize(params string[] roles)
         {
             try
             {
