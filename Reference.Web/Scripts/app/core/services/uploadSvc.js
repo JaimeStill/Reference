@@ -42,6 +42,7 @@
                         for (var i = 0; i < pendingFilesModel.files.length; i++) {
                             toastrSvc.alertSuccess(pendingFilesModel.files[i].name + " uplaoded", "uploadSvc - uploadFiles()");
                         }
+                        pendingFilesModel.files = {};
                         uploadRt.send().then(function () {
                             toastrSvc.alertSuccess("fileHub.server.send");
                         });

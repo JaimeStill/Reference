@@ -58,11 +58,21 @@
     <Compile Include="Migrations\201602092025551_Record.Designer.cs">
       <DependentUpon>201602092025551_Record.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603021340076_Tracker.cs" />
+    <Compile Include="Migrations\201603021340076_Tracker.Designer.cs">
+      <DependentUpon>201603021340076_Tracker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603021342080_TrackerPendingChanges.cs" />
+    <Compile Include="Migrations\201603021342080_TrackerPendingChanges.Designer.cs">
+      <DependentUpon>201603021342080_TrackerPendingChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Demo\Record.cs" />
     <Compile Include="Model\Identity\AppRole.cs" />
     <Compile Include="Model\Identity\AppUser.cs" />
     <Compile Include="Model\Identity\AppUserRole.cs" />
+    <Compile Include="Model\Tracker\Assignment.cs" />
+    <Compile Include="Model\Tracker\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -75,6 +85,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602092025551_Record.resx">
       <DependentUpon>201602092025551_Record.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603021340076_Tracker.resx">
+      <DependentUpon>201603021340076_Tracker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603021342080_TrackerPendingChanges.resx">
+      <DependentUpon>201603021342080_TrackerPendingChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

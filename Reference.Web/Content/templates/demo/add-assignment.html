@@ -1,0 +1,23 @@
+﻿<div>
+    <h3>Add Assignment</h3>
+    <div class="well">
+        <div class="form-group">
+            <p class="control-label">Description:</p>
+            <textarea rows="3" ng-model="description" class="form-control" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+            <p class="control-label">Hours:</p>
+            <input type="number" ng-model="hours" class="form-control" placeholder="0.0" />
+        </div>
+        <div class="form-group">
+            <p class="control-label">Category:</p>
+            <select ng-model="category" class="form-control" ng-options="category.name for category in model.categories track by category.id"></select>
+        </div>
+        <div ng-hide="loading">
+            <input type="button" class="btn btn-success" ng-click="saveAssignment()" value="Add" />
+        </div>
+        <div ng-show="loading">
+            <active-progress-bar></active-progress-bar>
+        </div>
+    </div>
+</div>

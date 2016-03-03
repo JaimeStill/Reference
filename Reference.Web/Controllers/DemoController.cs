@@ -17,5 +17,21 @@ namespace Reference.Web.Controllers
                 return (ActionResult)View();
             });
         }
+
+        public Task<ActionResult> SignalRServer()
+        {
+            return Task.Run(() =>
+            {
+                return (ActionResult)View();
+            });
+        }
+
+        public Task<ActionResult> SignalRClient()
+        {
+            return Task.Run(() =>
+            {
+                return (ActionResult)View();
+            });
+        }
     }
 }

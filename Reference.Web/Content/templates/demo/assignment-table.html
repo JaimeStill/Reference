@@ -1,0 +1,16 @@
+﻿<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="assignment in model.assignments">
+            <td ng-bind="assignment.description"></td>
+            <td ng-bind="assignment.category.name"></td>
+            <td ng-bind="assignment.hours"></td>
+        </tr>
+    </tbody>
+</table>

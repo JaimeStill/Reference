@@ -1,0 +1,29 @@
+﻿<div>
+    <h3>Assignments</h3>
+    <hr />
+    <div class="row">
+        <div class="col-xs-5"><strong>Description</strong></div>
+        <div class="col-xs-2"><strong>Hours</strong></div>
+        <div class="col-xs-3"><strong>Category</strong></div>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-1"></div>
+    </div>
+    <hr />
+    <div class="row" ng-repeat="assignment in model.assignments">
+        <div class="col-xs-5">
+            <textarea type="text" ng-model="assignment.description" class="form-control full-textarea space-bottom" rows="3"></textarea>
+        </div>
+        <div class="col-xs-2">
+            <input type="number" ng-model="assignment.hours" class="form-control" />
+        </div>
+        <div class="col-xs-3">
+            <select ng-model="assignment.category" class="form-control" ng-options="category.name for category in categoryModel.categories track by category.id"></select>
+        </div>
+        <div class="col-xs-1">
+            <input type="button" class="btn btn-primary" ng-click="updateAssignment(assignment)" value="Update" />
+        </div>
+        <div class="col-xs-1">
+            <input type="button" class="btn btn-danger" ng-click="deleteAssignment(assignment)" value="Delete" />
+        </div>
+    </div>
+</div>

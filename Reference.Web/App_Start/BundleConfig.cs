@@ -28,6 +28,7 @@ namespace Reference.Web
 
             bundles.Add(new ScriptBundle("~/bundles/charts").Include(
                 "~/Scripts/Chart.Core.js",
+                "~/Scripts/Chart.Radar.js",
                 "~/Scripts/Chart.Line.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/demo").Include(

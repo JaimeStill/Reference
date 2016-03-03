@@ -20,7 +20,23 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Demo", "Index", "Demo")</li>
+                    <li class="dropdown" role="presentation">
+                        <a class="dropdown-toggle" role="button" href="#" data-toggle="dropdown">
+                            Demo
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/Demo">Demo</a>
+                            </li>
+                            <li>
+                                <a href="/Demo/SignalRServer">SignalR Server</a>
+                            </li>
+                            <li>
+                                <a href="/Demo/SignalRClient">SignalR Client</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
                 <p class="nav navbar-text navbar-right">Hello, @User.Identity.Name!</p>
             </div>
@@ -31,7 +47,7 @@
     </div>
 
     @Scripts.Render("~/bundles/core")
-    <script src="signalr/hubs"></script>
+    <script src="~/signalr/hubs"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

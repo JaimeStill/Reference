@@ -23,7 +23,7 @@ textarea {
     max-width: 280px;
 }
 
-.line-canvas {
+.chart-canvas {
     margin-right: auto;
     margin-left: auto;
     width: 100%;
@@ -32,4 +32,12 @@ textarea {
 
 input[type='file'] {
     display: none;
+}
+
+.full-textarea {
+    max-width: 100%;
+}
+
+.space-bottom {
+    margin-bottom: 10px;
 }

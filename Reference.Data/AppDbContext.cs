@@ -1,5 +1,6 @@
 ﻿using Reference.Data.Model.Demo;
 using Reference.Data.Model.Identity;
+using Reference.Data.Model.Tracker;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -19,6 +20,9 @@ namespace Reference.Data
         public DbSet<AppUserRole> AppUserRoles { get; set; }
 
         public DbSet<Record> Records { get; set; }
+
+        public DbSet<Assignment> Assignments { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         public static AppDbContext Create()
         {

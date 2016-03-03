@@ -76,6 +76,53 @@ namespace Reference.Web.Controllers
         {
             await Context.DeleteRecord(id, Server);
         }
+
+        #endregion
+
+        #region SignalR
+
+        [Route("api/rt/getCategories")]
+        [HttpGet]
+        public async Task<IEnumerable<CategoryModel>> GetCategories()
+        {
+            return await Context.GetCategories();
+        }
+
+        [Route("api/rt/getAssignments")]
+        [HttpGet]
+        public async Task<IEnumerable<AssignmentModel>> GetAssignments()
+        {
+            return await Context.GetAssignments();
+        }
+
+        [Route("api/rt/addAssignment")]
+        [HttpPost]
+        public async Task AddAssignment([FromBody]AssignmentModel model)
+        {
+            await Context.AddAssignment(model);
+        }
+
+        [Route("api/rt/updateAssignment")]
+        [HttpPost]
+        public async Task UpdateAssignment([FromBody]AssignmentModel model)
+        {
+            await Context.UpdateAssignment(model);
+        }
+
+        [Route("api/rt/deleteAssignment")]
+        [HttpPost]
+        public async Task DeleteAssignemnt([FromBody]int id)
+        {
+            await Context.DeleteAssignment(id);
+        }
+
+        [Route("api/rt/getAssignmentRadar")]
+        [HttpGet]
+        public async Task<RadarModel> GetAssignmentRadar()
+        {
+            return await Context.GetAssignmentRadar();
+        }
+
         #endregion
     }
 }

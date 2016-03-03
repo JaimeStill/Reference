@@ -1,5 +1,6 @@
 namespace Reference.Data.Migrations
 {
+    using Model.Tracker;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +27,16 @@ namespace Reference.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Categories.AddOrUpdate(
+                c => c.Name,
+                new Category { Name = "Planning" },
+                new Category { Name = "Design" },
+                new Category { Name = "Development" },
+                new Category { Name = "Testing" },
+                new Category { Name = "Documentation" },
+                new Category { Name = "Training" }
+            );
         }
     }
 }
