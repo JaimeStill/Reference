@@ -3,6 +3,7 @@
         // Private
         var
             chartHub = $.connection.chartHub,
+            chartConnection = $.connection.hub.start(),
             chartCallback = function () { },
             sampleCallback = function () { },
             clientScope = {};
@@ -19,20 +20,22 @@
             send = function (labels, datasets, samples) {
                 var deferred = $q.defer();
 
-                $.connection.hub.start().done(function () {
-                    chartHub.server.send(labels, datasets, samples).done(function () {
-                        deferred.resolve();
-                    });
+                chartHub.server.send(labels, datasets, samples).done(function () {
+                    deferred.resolve();
                 });
 
                 return deferred.promise;
             },
             initializeServer = function (updateChart, updateSample) {
+                $.connection.hub.stop();
                 chartCallback = updateChart;
                 sampleCallback = updateSample;
+                chartConnection = $.connection.hub.start();
             },
             initializeClient = function (scope) {
+                $.connection.hub.stop();
                 clientScope = scope;
+                chartConnection = $.connection.hub.start();
             };
 
         return {

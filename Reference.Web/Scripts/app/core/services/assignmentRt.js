@@ -28,11 +28,15 @@
             },
             initializeClient = function (data, chart) {
                 if (data) {
+                    $.connection.hub.stop();
                     dataCallback = data;
+                    assignmentConnection = $.connection.hub.start();
                 }
 
                 if (chart) {
+                    $.connection.hub.stop();
                     chartCallback = chart;
+                    assignmentConnection = $.connection.hub.start();
                 }
             };
 

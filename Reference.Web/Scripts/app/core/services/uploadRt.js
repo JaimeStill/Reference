@@ -3,7 +3,8 @@
         // Private
         var
             fileHub = $.connection.fileHub,
-            fileCallback = function () { };
+            fileConnection = $.connection.hub.start();
+        fileCallback = function () { };
 
         fileHub.client.getRecords = function () {
             fileCallback();
@@ -14,16 +15,16 @@
             send = function () {
                 var deferred = $q.defer();
 
-                $.connection.hub.start().done(function () {
-                    fileHub.server.send().done(function () {
-                        deferred.resolve();
-                    });
+                fileHub.server.send().done(function () {
+                    deferred.resolve();
                 });
 
                 return deferred.promise;
             },
             initializeClient = function (getRecords) {
+                $.connection.hub.stop();
                 fileCallback = getRecords;
+                fileConnection = $.connection.hub.start();
             };
 
         return {
